@@ -1,0 +1,20 @@
+{% extends "mynotes/layout.html" %}
+{% load static %}
+{% block header %}
+            
+{% endblock %} 
+{% block body %}        
+            <!-- Features section-->
+            {% comment %} <a  class="btn btn-primary btn-lg px-4 me-sm-3"  href="{% url 'create' %}">create+</a> {% endcomment %}
+            <h4 >srdfghjkl</h4>
+        {% for a in p %}
+        <h1>hello</h1>
+        <div >
+           <h3> {{a.Title}}</h3>
+           <div > {{a.content}}</div>
+       </div>
+       {% endfor %}<br/>
+{% endblock %}
+        
+       
+    

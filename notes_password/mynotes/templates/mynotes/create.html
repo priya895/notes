@@ -1,0 +1,25 @@
+{% extends "mynotes/layout.html" %}
+{%load static%}
+{% block body %}
+
+    {% comment %} <h2>New listing</h2> {% endcomment %}
+
+    {% comment %} {% if message %}
+        <div>{{ message }}</div>
+    {% endif %} {% endcomment %}
+
+    <form action="{% url 'create' %}" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <textarea style="width:250px;" class="form-control" autofocus type="text" name="content" placeholder="content"></textarea>
+        </div>
+        <div class="form-group">
+            <input style="width:250px;" class="form-control" type="text" name="Title" placeholder="Title">
+        </div>
+        <br/>
+        {% comment %} <a  class="btn btn-primary btn-lg px-4 me-sm-3"  href="{% url 'add' id %}">save</a> {% endcomment %}
+        <input class="btn btn-primary" type="submit" value="save">
+    </form>
+
+
+{% endblock %}
