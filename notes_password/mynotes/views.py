@@ -64,18 +64,14 @@ def contact(request):
 @login_required(login_url='/login')
 def create(request):
     if request.method== "POST":
-        note=Notes()
+        try:
+            note=Notes.objects.get(user= request.user)
+        except Notes.DoesNotExist:
+            note= Notes.objects.create(user= request.user)
         note.content=request.POST["content"]
         note.Title=request.POST["Title"]
         note.save()
-        # return HttpResponseRedirect(reverse("homepage"))
-        try:
-             w=Fnote.objects.get(user=request.user)
-        except Fnote.DoesNotExist:
-             w=Fnote.objects.create(user=request.user)
-        p=Fnote.objects.get(user=request.user)
-        p.files.add(note)
-        return redirect("notes")
+        return redirect(fnotes)
     else:
         return render(request,"mynotes/create.html",{
             "list":Notes.objects.all()
@@ -84,15 +80,14 @@ def create(request):
 def fnotes(request):
     current=request.user
     try:
-        instance= Fnote.objects.get(user=current)
-        return render(request, "mynotes/index.html",{
+        instance= Notes.objects.get(user=current)
+        return render(request, "mynotes/notes.html",{
+            # "p":Notes.objects.filter(user=current),
+            # "data":Notes.objects.all().values(),
             "p":instance.item.all(),
-            "Mynotes": True,
+            "wishlist": True,
         })
-    except Fnote.DoesNotExist:
-        return HttpResponse("<h1>No saved files in your notes!!!</h1>")
-
-
-
+    except Notes.DoesNotExist:
+        return HttpResponse("No saved files in your notes!!!")
 
 

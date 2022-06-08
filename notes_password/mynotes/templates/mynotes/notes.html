@@ -5,15 +5,15 @@
 {% endblock %} 
 {% block body %}        
             <!-- Features section-->
-            {% comment %} <a  class="btn btn-primary btn-lg px-4 me-sm-3"  href="{% url 'create' %}">create+</a> {% endcomment %}
-            <h4 >srdfghjkl</h4>
+            <a  class="btn btn-primary btn-lg px-4 me-sm-3"  href="{% url 'create' %}">create+</a>
+            <h4 style="text-align:center;">MY NOTES</h4>
         {% for a in p %}
         <h1>hello</h1>
         <div >
            <h3> {{a.Title}}</h3>
-           <div > {{a.content}}</div>
-       </div>
-       {% endfor %}<br/>
+           <h6><i>{{a.content}}</i></h6>
+       </div>&nbsp;
+       {% endfor %}
 {% endblock %}
         
        
