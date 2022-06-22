@@ -17,8 +17,9 @@ from django.contrib import admin
 from django.conf.urls.static import static
 from django.urls import include,path
 from django.urls import path
-
+# from django.conf.urls import patterns,url
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("",include("mynotes.urls")),
+    path("",include("mynotes.urls")), 
+    # path('',include('send.urls'))
 ]

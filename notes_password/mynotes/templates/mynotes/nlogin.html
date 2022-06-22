@@ -1,0 +1,20 @@
+{% comment %} {% extends "mynotes/layout.html" %}
+{% load static %}
+{% block body %}
+<form action="{% url 'nlogin' %}" method="post">
+    {% csrf_token %}   
+                <div class="mb-3 col-md-6 offset-3 ">
+                  <input type="text" class="form-control" autofocus name="mail" aria-describedby="emailHelp"
+                    placeholder="Enter mail id">
+                </div>
+                <div class="mb-3 col-md-6 offset-3 ">
+                  <input type="text" class="form-control" autofocus name="npass" aria-describedby="emailHelp"
+                    placeholder="Enter password">
+                </div>
+                <div class="text-center"><button type="submit" class="btn btn-primary px-5 mb-5 w-90 ">Login</button></div>
+               
+</form>
+
+{% comment %} Don't have an account? <a href="{% url 'register' %}">Register here.</a> {% endcomment %}
+
+{% endblock %} {% endcomment %}

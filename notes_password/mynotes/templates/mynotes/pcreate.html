@@ -1,0 +1,21 @@
+{% extends "mynotes/layout.html" %}
+{%load static%}
+{% block body %}  
+    <form action="{% url 'pcreate' %}" method="post">
+        {% csrf_token %}
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <div class="form-group">
+                        <input style="width:300px;" class="form-control"autofocus type="text" name="title" placeholder="Title">
+                    </div>&nbsp;
+                    <div class="form-group">
+                        <input style="width:300px;" class="form-control" type="password" name="password" placeholder="password">
+                    </div>
+                    <br/>
+                    <input class="btn btn-primary" type="submit" value="save">
+                </div>
+            </div>
+        </div>   
+    </form>   
+{% endblock %}

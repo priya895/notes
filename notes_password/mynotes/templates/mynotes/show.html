@@ -1,0 +1,16 @@
+{% extends "mynotes/layout.html" %}
+{% load static %}
+{% block header %}
+            
+{% endblock %} 
+{% block body %}               
+            {% for a in pi%}
+            <div>
+                   <h2 style="color:purple;">{{a.Title}}</h2>
+                   <h6><i>{{a.content}}</i></h6>
+            </div>
+            {% endfor %}
+{% endblock %}
+        
+       
+    

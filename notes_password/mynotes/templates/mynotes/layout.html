@@ -42,14 +42,14 @@
                                 <a class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Create</a>
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
                                     <li><a class="dropdown-item" href="{% url 'create' %}">create notes</a></li>
-                                    <li><a class="dropdown-item" href="">create passwords</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'pcreate' %}">create passwords</a></li>
                                 </ul>
                             </li> 
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" id="navbarDropdownPortfolio" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Portfolio</a>
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownPortfolio">
-                                    <li><a class="dropdown-item" href="{% url 'notes' %}">My Notes</a></li>
-                                    {% comment %} <li><a class="dropdown-item" href="{% url 'passwords' %}">My Passwords</a></li> {% endcomment %}
+                                    <li><a class="dropdown-item" href="{% url 'nlogin' %}">My Notes</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'passwords' %}">My Passwords</a></li>
                                 </ul>
                             </li>
                             {% if user.is_authenticated %}
